@@ -6,7 +6,7 @@ console.log('Answer "yes" if the number is even, otherwise answer "no".');
 const brainEven = () => {
   let correct = 0;
   while (correct < 3) {
-    const number = Math.floor(Math.random() * 10);
+    const number = Math.floor(Math.random() * 100);
     const isEven = number % 2 === 0;
     console.log(`Question: ${number}`);
     const str = readlineSync.question('Your answer: ');
