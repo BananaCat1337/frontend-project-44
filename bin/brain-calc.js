@@ -29,9 +29,7 @@ const calc = () => {
         Let's try again, ${name}!`);
       correct = 0;
     }
-    if (correct === 3) {
-      console.log(`Congratulations, ${name}!`);
-    }
+    console.log(`Congratulations, ${name}!`);
   }
 };
 calc();
