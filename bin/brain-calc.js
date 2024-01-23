@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-import { name } from './brain-games.js';
+import name from './brain-games.js';
 
 console.log('What is the result of the expression?');
 const calc = () => {
@@ -28,11 +28,11 @@ const calc = () => {
       console.log(`'${str}' is wrong answer ;(. Correct answer was '${result}'.
         Let's try again, ${name}!`);
       correct = 0;
+    }
+    if (correct === 3) {
+      console.log(`Congratulations, ${name}!`);
+    }
   }
-  if (correct === 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
-}
 };
 calc();
-export default calc
+export default calc;
