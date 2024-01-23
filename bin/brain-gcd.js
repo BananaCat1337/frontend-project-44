@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-
 import name from './brain-games.js';
 
 function gcd(a, b) {

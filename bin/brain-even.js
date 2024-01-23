@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-
 import name from './brain-games.js';
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -14,15 +13,13 @@ const brainEven = () => {
       console.log('Correct!');
       correct += 1;
     } else if (isEven && str !== 'yes') {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'yes'.
-        Let's try again, ${name}!`);
+      console.log(`'${str}' is wrong answer ;(. Correct answer was 'yes'. Let's try again, ${name}!`);
       correct = 0;
     } else if (!isEven && str === 'no') {
       console.log('Correct!');
       correct += 1;
     } else if (!isEven && str !== 'no') {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'.
-        Let's try again, ${name}!`);
+      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'. Let's try again, ${name}!`);
       correct = 0;
     }
   }

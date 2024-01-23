@@ -1,5 +1,4 @@
 import readlineSync from 'readline-sync';
-
 import name from './brain-games.js';
 
 console.log('What is the result of the expression?');
