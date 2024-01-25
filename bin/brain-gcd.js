@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import readlineSync from 'readline-sync';
 import name from './brain-games.js';
 
@@ -14,8 +16,8 @@ const brainGcd = () => {
   let correct = 0;
 
   while (correct < 3) {
-    const number1 = Math.floor(Math.random() * 100) + 1;
-    const number2 = Math.floor(Math.random() * 100) + 1;
+    const number1 = Math.floor(Math.random() * 50) + 1;
+    const number2 = Math.floor(Math.random() * 50) + 1;
     const correctAnswer = gcd(number1, number2);
 
     console.log(`Question: ${number1} ${number2}`);

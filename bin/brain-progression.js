@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import name from './brain-games.js';
 
@@ -23,7 +24,7 @@ const brainProgressionGame = () => {
       correct = 0;
     }
   }
-  console.log(`Let's try again, ${name}!`);
+  console.log(`Congratulations, ${name}!`);
 };
 
 brainProgressionGame();
