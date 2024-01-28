@@ -14,14 +14,16 @@ const brainEven = () => {
       console.log('Correct!');
       correct += 1;
     } else if (isEven && str !== 'yes') {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'yes'. Let's try again, ${name}!`);
-      correct = 0;
+      console.log(`'${str}' is wrong answer ;(. Correct answer was'yes'}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     } else if (!isEven && str === 'no') {
       console.log('Correct!');
       correct += 1;
     } else if (!isEven && str !== 'no') {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'. Let's try again, ${name}!`);
-      correct = 0;
+      console.log(`'${str}' is wrong answer ;(. Correct answer was'no'}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
   if (correct === 3) {
