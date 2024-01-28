@@ -14,7 +14,7 @@ const brainProgressionGame = () => {
     }
 
     console.log('What number is missing in the progression?');
-    console.log(`Question: ${progression.join(', ')}`);
+    console.log(`Question: ${progression.join(' ')}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === String(firstNumber + step * hiddenIndex)) {
       console.log('Correct!');
