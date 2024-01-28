@@ -19,7 +19,7 @@ const primeGame = () => {
       console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'`);
       console.log(`Let's try again, ${name}!`);
       return;
-    } else if (str === 'no' && (number === 0 || number === 1)) {
+    } if (str === 'no' && (number === 0 || number === 1)) {
       console.log('Correct!');
       corret += 1;
     } else if (str === 'yes' && result === 2 && number !== 1 && number !== 0) {
