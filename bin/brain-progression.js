@@ -21,7 +21,8 @@ const brainProgressionGame = () => {
       correct += 1;
     } else {
       console.log(`${answer} is wrong answer ;(. Correct answer was ${firstNumber + step * hiddenIndex}`);
-      correct = 0;
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
   console.log(`Congratulations, ${name}!`);

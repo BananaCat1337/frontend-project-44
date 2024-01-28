@@ -25,9 +25,9 @@ const calc = () => {
       console.log('Correct!');
       correct += 1;
     } else if (result !== parseInt(str, 10)) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was '${result}'.
-        Let's try again, ${name}!`);
-      correct = 0;
+      console.log(`'${str}' is wrong answer ;(. Correct answer was '${result}'.`)
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
     console.log(`Congratulations, ${name}!`);
   }

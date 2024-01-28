@@ -29,7 +29,7 @@ const brainGcd = () => {
     } else {
       console.log(`'${zxc}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${name}!`);
-      correct = 0;
+      return;
     }
   }
 

@@ -16,8 +16,9 @@ const primeGame = () => {
     console.log(`Question: ${number}`);
     const str = readlineSync.question('Your answer: ');
     if (str === 'yes' && (number === 0 || number === 1)) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'. Let's try again, ${name}!`);
-      corret = 0;
+      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     } else if (str === 'no' && (number === 0 || number === 1)) {
       console.log('Correct!');
       corret += 1;
@@ -28,11 +29,13 @@ const primeGame = () => {
       console.log('Correct!');
       corret += 1;
     } else if (str !== 'yes' && result === 2 && number !== 1 && number !== 0) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'yes'. Let's try again, ${name}!`);
-      corret = 0;
+      console.log(`'${str}' is wrong answer ;(. Correct answer was 'yes'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     } else if (str !== 'no' && result > 2) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'. Let's try again, ${name}!`);
-      corret = 0;
+      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
   }
   console.log(`Congratulations, ${name}!`);
