@@ -10,7 +10,7 @@ const brainProgressionGame = () => {
     const step = Math.floor(Math.random() * 5) + 1;
     const hiddenIndex = Math.floor(Math.random() * 10);
     for (let i = 0; i < 10; i += 1) {
-      progression.push(i === hiddenIndex ? ' .. ' : firstNumber + step * i);
+      progression.push(i === hiddenIndex ? '..' : firstNumber + step * i);
     }
 
     console.log('What number is missing in the progression?');
