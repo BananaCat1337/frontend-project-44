@@ -10,4 +10,4 @@ training for games "brain-gcd": [![asciicast](https://asciinema.org/a/8esZna7CNS
 
 training for games "brain-prime": [![asciicast](https://asciinema.org/a/BusBv4Eiw14yWZ19GS4FAIbAk.svg)](https://asciinema.org/a/BusBv4Eiw14yWZ19GS4FAIbAk)
 
-training for games "brain-progression": [![asciicast](ttps://asciinema.org/a/FHv5GnhFHqpxCO8wuaCiT6jRI.svg)](ttps://asciinema.org/a/FHv5GnhFHqpxCO8wuaCiT6jRI)
+training for games "brain-progression": [![asciicast](https://asciinema.org/a/FHv5GnhFHqpxCO8wuaCiT6jRI.svg)](ttps://asciinema.org/a/FHv5GnhFHqpxCO8wuaCiT6jRI)
