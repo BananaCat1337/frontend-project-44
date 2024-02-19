@@ -1,13 +1,14 @@
 import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
+import getRandomNumber from './logic-numbers.js';
 
 const logicProgression = () => {
   let correct = 0;
   while (correct < 3) {
     const progression = [];
-    const firstNumber = Math.floor(Math.random() * 10);
-    const step = Math.floor(Math.random() * 5) + 1;
-    const hiddenIndex = Math.floor(Math.random() * 10);
+    const firstNumber = getRandomNumber(10);
+    const step = getRandomNumber(5) + 1;
+    const hiddenIndex = getRandomNumber(10);
     for (let i = 0; i < 10; i += 1) {
       progression.push(i === hiddenIndex ? '..' : firstNumber + step * i);
     }

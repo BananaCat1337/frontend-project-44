@@ -1,11 +1,12 @@
 import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
+import getRandomNumber from './logic-numbers.js';
 
 const logicPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let corret = 0;
-  while (corret < 3) {
-    const number = Math.floor(Math.random() * 20);
+  let correct = 0;
+  while (correct < 3) {
+    const number = getRandomNumber(20);
     let result = 0;
     for (let i = 1; i <= number; i += 1) {
       if (number % i === 0) {
@@ -13,26 +14,17 @@ const logicPrime = () => {
       }
     }
     console.log(`Question: ${number}`);
-    const str = readlineSync.question('Your answer: ');
-    if (str === 'yes' && (number === 0 || number === 1)) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'`);
+    const answer = readlineSync.question('Your answer: ');
+    if ((answer === 'yes' && (number === 0 || number === 1)) || (answer === 'no' && (number === 0 || number === 1))) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answer === 'yes' ? 'no' : 'yes'}'`);
       console.log(`Let's try again, ${name}!`);
       return;
-    } if (str === 'no' && (number === 0 || number === 1)) {
+    }
+    if ((answer === 'yes' && result === 2 && number !== 1 && number !== 0) || (answer === 'no' && result > 2)) {
       console.log('Correct!');
-      corret += 1;
-    } else if (str === 'yes' && result === 2 && number !== 1 && number !== 0) {
-      console.log('Correct!');
-      corret += 1;
-    } else if (str === 'no' && result > 2) {
-      console.log('Correct!');
-      corret += 1;
-    } else if (str !== 'yes' && result === 2 && number !== 1 && number !== 0) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'yes'.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
-    } else if (str !== 'no' && result > 2) {
-      console.log(`'${str}' is wrong answer ;(. Correct answer was 'no'.`);
+      correct += 1;
+    } else if ((answer !== 'yes' && result === 2 && number !== 1 && number !== 0) || (answer !== 'no' && result > 2)) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answer === 'yes' ? 'no' : 'yes'}'.`);
       console.log(`Let's try again, ${name}!`);
       return;
     }

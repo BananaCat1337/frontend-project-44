@@ -1,14 +1,15 @@
 import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
+import numbers from './logic-numbers.js';
 
+const monthArray = ['+', '-', '*'];
 const logicCalc = () => {
   console.log('What is the result of the expression?');
   let correct = 0;
-  const monthArray = ['+', '-', '*'];
   while (correct < 3) {
-    const firstNumber = Math.floor(Math.random() * 10);
-    const secondNumber = Math.floor(Math.random() * 10);
-    const randomIndex = Math.floor(Math.random() * monthArray.length);
+    const firstNumber = numbers(10);
+    const secondNumber = numbers(10);
+    const randomIndex = numbers(monthArray.length);
     const randomElement = monthArray[randomIndex];
     let result = 0;
     if (randomElement === '+') {
