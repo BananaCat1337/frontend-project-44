@@ -10,7 +10,7 @@ function checkAnswer(number, isEven) {
     return true;
   }
   console.log(`${answer} is the wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-  console.log('Let\'s try again!');
+  console.log(`Let's try again, ${name}!`);
   return false;
 }
 
