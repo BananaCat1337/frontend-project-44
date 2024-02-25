@@ -2,33 +2,32 @@ import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
 import getRandomNumber from './logic-numbers.js';
 
+function checkAnswer(number, isEven) {
+  const correctAnswer = isEven ? 'yes' : 'no';
+  const answer = readlineSync.question('Your answer: ');
+  if ((isEven && answer === 'yes') || (!isEven && answer === 'no')) {
+    console.log('Correct!');
+    return true;
+  }
+  console.log(`${answer} is the wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log('Let\'s try again!');
+  return false;
+}
+
 const logicEven = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
   let correct = 0;
   while (correct < 3) {
     const number = getRandomNumber(10);
     const isEven = number % 2 === 0;
     console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (isEven && answer === 'yes') {
-      console.log('Correct!');
+    if (checkAnswer(number, isEven, name)) {
       correct += 1;
-    } else if (isEven && answer !== 'yes') {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was'yes''.`);
-      console.log(`Let's try again, ${name}!`);
-      return;
-    } else if (!isEven && answer === 'no') {
-      console.log('Correct!');
-      correct += 1;
-    } else if (!isEven && answer !== 'no') {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was'no''.`);
-      console.log(`Let's try again, ${name}!`);
+    } else {
       return;
     }
   }
-  if (correct >= 3) {
-    console.log(`Congratulations, ${name}!`);
-  }
+  console.log(`Congratulations, ${name}!`);
 };
 
 export default logicEven;
