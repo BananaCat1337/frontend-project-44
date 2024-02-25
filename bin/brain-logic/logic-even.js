@@ -9,13 +9,13 @@ function checkAnswer(number, isEven) {
     console.log('Correct!');
     return true;
   }
-  console.log(`${answer} is the wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+  console.log(`"${answer}" is the wrong answer ;(. Correct answer was "${correctAnswer}".`);
   console.log(`Let's try again, ${name}!`);
   return false;
 }
 
 const logicEven = () => {
-  console.log("Answer 'yes' if the number is even, otherwise answer 'no'.");
+  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let correct = 0;
   while (correct < 3) {
     const number = getRandomNumber(10);
