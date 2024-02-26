@@ -12,31 +12,43 @@ const isPrime = (number) => {
   return true;
 };
 
-const printWrongAnswer = (number) => {
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+const printWrongAnswer = (correctAnswer) => {
   console.log(`'no' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   console.log(`Let's try again, ${name}!`);
+};
+
+const askQuestion = () => {
+  const number = getRandomNumber(20);
+  console.log(`Question: ${number}`);
+  const answer = readlineSync.question('Your answer: ');
+
+  return {
+    number,
+    answer,
+  };
+};
+
+const checkAnswer = (number, answer) => {
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  return answer === correctAnswer;
 };
 
 const logicPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let correct = 0;
   while (correct < 3) {
-    const number = getRandomNumber(20);
-    console.log(`Question: ${number}`);
-    const answer = readlineSync.question('Your answer: ');
+    const { number, answer } = askQuestion();
 
-    const isCorrectAnswer = (isPrime(number) && answer === 'yes') || (!isPrime(number) && answer === 'no');
     if (number < 2 && answer !== 'no') {
-      printWrongAnswer(number);
+      printWrongAnswer('no');
       return;
     }
 
-    if (isCorrectAnswer) {
+    if (checkAnswer(number, answer)) {
       console.log('Correct!');
       correct += 1;
     } else {
-      printWrongAnswer(number);
+      printWrongAnswer(isPrime(number) ? 'yes' : 'no');
       return;
     }
   }
