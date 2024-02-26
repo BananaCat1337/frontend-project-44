@@ -1,21 +1,8 @@
 import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
-import getRandomNumber from './logic-numbers.js';
-
-const mathArray = ['+', '-', '*'];
-
-const calculateExpression = (firstNumber, secondNumber, operator) => {
-  switch (operator) {
-    case '+':
-      return firstNumber + secondNumber;
-    case '-':
-      return firstNumber - secondNumber;
-    case '*':
-      return firstNumber * secondNumber;
-    default:
-      return NaN;
-  }
-};
+import getRandomNumber from './tools/logic-numbers.js';
+import generateRandomOperator from './tools/RandomOperator.js';
+import calculateExpression from './tools/calculateExpression.js';
 
 const logicCalc = () => {
   console.log('What is the result of the expression?');
@@ -23,24 +10,24 @@ const logicCalc = () => {
   while (correct < 3) {
     const firstNumber = getRandomNumber(10);
     const secondNumber = getRandomNumber(10);
-    const randomIndex = getRandomNumber(mathArray.length);
-    const randomOperator = mathArray[randomIndex];
+    const operator = generateRandomOperator();
 
-    const result = calculateExpression(firstNumber, secondNumber, randomOperator);
-
-    console.log(`Question: ${firstNumber} ${randomOperator} ${secondNumber}`);
+    console.log(`Question: ${firstNumber} ${operator} ${secondNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
+    const correctAnswer = calculateExpression(firstNumber, operator, secondNumber);
 
-    if (result === parseInt(userAnswer, 10)) {
+    if (Number(userAnswer) === correctAnswer) {
       console.log('Correct!');
       correct += 1;
     } else {
-      console.log(`${userAnswer} is wrong answer ;(. Correct answer was '${result}'.`);
+      console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
       console.log(`Let's try again, ${name}!`);
-      return;
+      break;
     }
   }
-  console.log(`Congratulations, ${name}!`);
-};
 
+  if (correct > 2) {
+    console.log(`Congratulations, ${name}!`);
+  }
+};
 export default logicCalc;

@@ -1,24 +1,6 @@
 import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
-import getRandomNumber from './logic-numbers.js';
-
-function gcd(a, b) {
-  if (b === 0) {
-    return a;
-  }
-  return gcd(b, a % b);
-}
-
-function getGcdQuestion() {
-  const number2 = getRandomNumber(50) + 1;
-  const number1 = getRandomNumber(50) + 1;
-  const correctAnswer = gcd(number1, number2);
-
-  return {
-    prompt: `Find the greatest common divisor of given numbers.\nQuestion: ${number1} ${number2}`,
-    correctAnswer,
-  };
-}
+import getGcdQuestion from './tools/getGcdQuestion.js';
 
 const logicGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
