@@ -13,7 +13,8 @@ const isPrime = (number) => {
 };
 
 const printWrongAnswer = (number) => {
-  console.log(`'no' is wrong answer ;(. Correct answer was '${isPrime(number) ? 'yes' : 'no'}'.`);
+  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  console.log(`'no' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
   console.log(`Let's try again, ${name}!`);
 };
 
@@ -25,16 +26,17 @@ const logicPrime = () => {
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if ((answer === 'yes' && (number === 0 || number === 1)) || (answer === 'no' && (number === 0 || number === 1))) {
-      printWrongAnswer(number, name);
+    const isCorrectAnswer = (isPrime(number) && answer === 'yes') || (!isPrime(number) && answer === 'no');
+    if (number < 2 && answer !== 'no') {
+      printWrongAnswer(number);
       return;
     }
 
-    if ((answer === 'yes' && isPrime(number)) || (answer === 'no' && !isPrime(number))) {
+    if (isCorrectAnswer) {
       console.log('Correct!');
       correct += 1;
     } else {
-      printWrongAnswer(number, name);
+      printWrongAnswer(number);
       return;
     }
   }
