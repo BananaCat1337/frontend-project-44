@@ -2,33 +2,43 @@ import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
 import getRandomNumber from './logic-numbers.js';
 
+const isPrime = (number) => {
+  if (number < 2) return false;
+  for (let i = 2; i <= Math.sqrt(number); i += 1) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const printWrongAnswer = (number) => {
+  console.log(`'no' is wrong answer ;(. Correct answer was '${isPrime(number) ? 'yes' : 'no'}'.`);
+  console.log(`Let's try again, ${name}!`);
+};
+
 const logicPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let correct = 0;
   while (correct < 3) {
     const number = getRandomNumber(20);
-    let result = 0;
-    for (let i = 1; i <= number; i += 1) {
-      if (number % i === 0) {
-        result += 1;
-      }
-    }
     console.log(`Question: ${number}`);
     const answer = readlineSync.question('Your answer: ');
+
     if ((answer === 'yes' && (number === 0 || number === 1)) || (answer === 'no' && (number === 0 || number === 1))) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answer === 'yes' ? 'no' : 'yes'}'`);
-      console.log(`Let's try again, ${name}!`);
+      printWrongAnswer(number, name);
       return;
     }
-    if ((answer === 'yes' && result === 2 && number !== 1 && number !== 0) || (answer === 'no' && result > 2)) {
+
+    if ((answer === 'yes' && isPrime(number)) || (answer === 'no' && !isPrime(number))) {
       console.log('Correct!');
       correct += 1;
-    } else if ((answer !== 'yes' && result === 2 && number !== 1 && number !== 0) || (answer !== 'no' && result > 2)) {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${answer === 'yes' ? 'no' : 'yes'}'.`);
-      console.log(`Let's try again, ${name}!`);
+    } else {
+      printWrongAnswer(number, name);
       return;
     }
   }
+
   console.log(`Congratulations, ${name}!`);
 };
 
