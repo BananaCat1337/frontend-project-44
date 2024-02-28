@@ -6,7 +6,7 @@ import StrCheckingАnswer from './tools/CheckAnswer.js';
 import isEven from './tools/isEven.js';
 
 const logicEven = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  const rules ='Answer "yes" if the number is even, otherwise answer "no".';
   for (let i = 0; i < 3; i += 1) {
     const randomNumber = generateRandomNumber(25);
     const correct = isEven(randomNumber) ? 'yes' : 'no';
