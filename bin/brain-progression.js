@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import logicProgression from './brain-logic/logic-progression.js';
+import logicProgression from '../scr/brain-logic/logic-progression.js';
 
 logicProgression();

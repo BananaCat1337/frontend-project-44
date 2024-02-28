@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import readlineSync from 'readline-sync';
-import name from '../brain-games.js';
+import name from '../../bin/brain-games.js';
 import generateRandomNumber from './tools/randomNumberGeneration.js';
-import checkingАnswer from './tools/CheckAnswer.js';
+import StrCheckingАnswer from './tools/CheckAnswer.js';
 import isEven from './tools/isEven.js';
 
 const logicEven = () => {
@@ -12,7 +12,7 @@ const logicEven = () => {
     const correct = isEven(randomNumber) ? 'yes' : 'no';
     console.log(`Question: ${randomNumber}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (!checkingАnswer(userAnswer, correct)) {
+    if (!StrCheckingАnswer(userAnswer, correct)) {
       return;
     }
   }

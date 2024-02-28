@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import logicCalc from './brain-logic/logic-calc.js';
+import logicCalc from '../scr/brain-logic/logic-calc.js';
 
 logicCalc();

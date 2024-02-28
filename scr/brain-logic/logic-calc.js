@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
-import name from '../brain-games.js';
-import checkingАnswer from './tools/CheckAnswer.js';
+import name from '../../bin/brain-games.js';
+import CheckingАnswer from './tools/CheckAnswer.js';
 import calculate from './tools/calculate.js';
 import randomExpression from './tools/RandomOperator.js';
 
@@ -9,9 +9,9 @@ const logicCalc = () => {
   for (let i = 0; i < 3; i += 1) {
     const expression = randomExpression();
     console.log(`Question: ${expression}`);
-    const answerUser = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
     const correct = calculate(expression);
-    if (!checkingАnswer(answerUser, correct)) {
+    if (!CheckingАnswer(userAnswer, correct)) {
       return;
     }
   }
