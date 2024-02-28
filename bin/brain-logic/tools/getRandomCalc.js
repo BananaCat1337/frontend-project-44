@@ -2,9 +2,9 @@ import generateRandomNumber from './randomNumberGeneration.js';
 
 const randomExpression = () => {
   const operators = ['+', '-', '*'];
-  const operator = operators[Math.floor(generateRandomNumber(operators.length))];
-  const num1 = generateRandomNumber(10);
-  const num2 = generateRandomNumber(10);
+  const operator = operators[Math.floor(Math.random() * operators.length)];
+  const num1 = generateRandomNumber();
+  const num2 = generateRandomNumber();
   return `${num1} ${operator} ${num2}`;
 };
 

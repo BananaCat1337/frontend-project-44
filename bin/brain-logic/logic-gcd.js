@@ -1,28 +1,21 @@
 import readlineSync from 'readline-sync';
 import name from '../brain-games.js';
-import getGcdQuestion from './tools/getGcdQuestion.js';
+import generateRandomNumber from './tools/randomNumberGeneration.js';
+import gcd from './tools/gcd.js';
+import checkingАnswer from './tools/CheckAnswer.js';
 
 const logicGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
-
-  let correct = 0;
-
-  while (correct < 3) {
-    const { prompt, correctAnswer } = getGcdQuestion();
-
-    console.log(prompt);
-    const answer = readlineSync.question('Your answer: ');
-
-    if (Number(answer) === correctAnswer) {
-      console.log('Correct!');
-      correct += 1;
-    } else {
-      console.log(`${answer} is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      console.log(`Let's try again, ${name}!`);
+  for (let i = 0; i < 3; i += 1) {
+    const num1 = generateRandomNumber(20);
+    const num2 = generateRandomNumber(20);
+    const correct = gcd(num1, num2);
+    console.log(`Question: ${num1} ${num2}`);
+    const userAnswer = readlineSync.question('Your answer: ');
+    if (!checkingАnswer(userAnswer, correct)) {
       return;
     }
   }
-
   console.log(`Congratulations, ${name}!`);
 };
 

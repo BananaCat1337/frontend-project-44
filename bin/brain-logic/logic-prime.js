@@ -2,7 +2,7 @@ import name from '../brain-games.js';
 import isPrime from './tools/isPrime.js';
 import printWrongAnswer from './tools/printWrongAnswer.js';
 import askQuestion from './tools/askQuestion.js';
-import checkAnswerPrime from './tools/checkAnswerPrime.js';
+import checkAnswer from './tools/checkAnswerPrime.js';
 
 const logicPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
@@ -15,7 +15,7 @@ const logicPrime = () => {
       return;
     }
 
-    if (checkAnswerPrime(number, answer)) {
+    if (checkAnswer(number, answer)) {
       console.log('Correct!');
       correct += 1;
     } else {
