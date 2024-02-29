@@ -38,7 +38,7 @@ const questionGenerator = (gameType) => {
     }
     case 'progression': {
       const { progression, hiddenNumber } = randomProgression();
-      question = `'Question:' ${progression.join(' ')}`;
+      question = `Question: ${progression.join(' ')}`;
       correct = hiddenNumber;
       break;
     }
