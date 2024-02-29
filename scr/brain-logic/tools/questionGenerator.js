@@ -9,6 +9,7 @@ import isPrime from './isPrime.js';
 const questionGenerator = (gameType) => {
   let question;
   let correct;
+
   switch (gameType) {
     case 'gcd': {
       const num1 = generateRandomNumber(20);
@@ -37,13 +38,14 @@ const questionGenerator = (gameType) => {
     }
     case 'progression': {
       const { progression, hiddenNumber } = randomProgression();
-      question = `Question:  + ${progression.join(' ')}`;
+      question = `Question: ${progression.join(' ')}`;
       correct = hiddenNumber;
       break;
     }
     default:
       return '';
   }
+
   console.log(question);
   return correct;
 };
